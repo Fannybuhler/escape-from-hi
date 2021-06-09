@@ -11,7 +11,7 @@
           <p v-if="winner">{{ winner === 'X' ? `You won!` : 'You lost' }}</p>
           <p v-if="winner === null && stepNumber > 9">It's a draw!</p>
           <button v-if="winner || stepNumber > 9" 
-            @click="restart">Play again
+            @click="restart">Next level
           </button>
           <button v-if="isStarted === false && winner === null" 
             @click="startGame" 
@@ -47,7 +47,7 @@ export default {
     },
 
     restart() {
-      location.reload()
+      window.location.href = "https://escape-from-hi-lvl2.herokuapp.com/";
     },
   }
 }

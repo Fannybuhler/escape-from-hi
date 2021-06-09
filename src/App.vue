@@ -1,16 +1,27 @@
 <template>
   <div>
+    <div class="score-board">
+      <img class="coins" src="./assets/krone.svg" alt="dollar sign">
+      <p class="coins__text">{{ coins }}</p>
+    </div>
     <Game />
   </div>
 </template>
 
 <script>
 import Game from './components/Game'
+import { mapState } from 'vuex'
 
 export default {
   name: 'App',
   components: {
     Game
+  },
+
+  computed: {
+    ...mapState([
+      'coins'
+    ])
   }
 }
 </script>
@@ -36,4 +47,20 @@ html, body {
   height: 100vh;
 }
 
+.score-board {
+  display: flex;
+  padding: 5px;
+  height: 40px;
+  align-items: center;
+}
+
+.coins {
+  height: 40px;
+}
+
+.coins__text {
+  color: #fff;
+  margin-left: 10px;
+  font-weight: 500;
+}
 </style>

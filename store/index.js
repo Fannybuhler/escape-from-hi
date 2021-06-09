@@ -7,6 +7,7 @@ export default createStore({
     currentPlayer: 'X',
     winner: null,
     stepNumber: 1,
+    coins: 0
   },
 
   getters: {
@@ -47,6 +48,7 @@ export default createStore({
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
           commit('saveWinner', squares[a])
           commit('toggleIsStarted')
+          commit('increaseCoins')
         }
       }
     }
@@ -72,6 +74,10 @@ export default createStore({
 
     toggleIsStarted(state) {
       state.isStarted = !state.isStarted
+    },
+
+    increaseCoins(state) {
+      state.coins += 20
     }
   }
 })
